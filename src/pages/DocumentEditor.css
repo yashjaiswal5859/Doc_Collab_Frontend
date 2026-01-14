@@ -1,0 +1,261 @@
+.editor-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f5f7fa;
+}
+
+.editor-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn-back {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-back:hover {
+  background: white;
+  color: #667eea;
+}
+
+.editor-header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.status-indicator {
+  font-size: 14px;
+  min-width: 120px;
+  text-align: right;
+}
+
+.saving {
+  color: #ffd700;
+  animation: pulse 1.5s infinite;
+}
+
+.saved {
+  color: #90ee90;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.active-users {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.btn-versions {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-versions:hover {
+  background: white;
+  color: #667eea;
+}
+
+.editor-container {
+  flex: 1;
+  display: flex;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.editor-textarea {
+  flex: 1;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 30px;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.8;
+  resize: none;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s;
+}
+
+.editor-textarea:focus {
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.1);
+  border-color: #667eea;
+}
+
+.versions-modal {
+  max-width: 700px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.versions-list {
+  margin: 20px 0;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.version-item {
+  background: #f5f7fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  transition: all 0.2s;
+}
+
+.version-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.version-info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.version-info strong {
+  color: #333;
+  font-size: 16px;
+}
+
+.version-date,
+.version-author {
+  color: #666;
+  font-size: 14px;
+}
+
+.version-preview {
+  background: white;
+  padding: 12px;
+  border-radius: 6px;
+  margin: 12px 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+  border: 1px solid #e0e0e0;
+}
+
+.btn-revert {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-revert:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.no-versions {
+  text-align: center;
+  color: #999;
+  padding: 40px 20px;
+}
+
+.btn-close-modal {
+  width: 100%;
+  background: #f5f7fa;
+  color: #333;
+  border: 2px solid #ddd;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 20px;
+  transition: all 0.2s;
+}
+
+.btn-close-modal:hover {
+  background: #e0e0e0;
+  border-color: #999;
+}
+
+@media (max-width: 768px) {
+  .editor-header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+
+  .header-left,
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .header-right {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .editor-header h1 {
+    font-size: 18px;
+  }
+
+  .editor-container {
+    padding: 10px;
+  }
+
+  .editor-textarea {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .versions-modal {
+    max-width: 95%;
+    max-height: 90vh;
+  }
+}
