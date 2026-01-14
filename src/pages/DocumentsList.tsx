@@ -7,10 +7,6 @@ import './DocumentsList.css';
 interface Document {
   id: number;
   title: string;
-  owner: {
-    id: number;
-    username: string;
-  };
   updatedAt: string;
   content: string;
 }
@@ -111,7 +107,7 @@ const DocumentsList: React.FC = () => {
 
       <main className="documents-main">
         <div className="documents-toolbar">
-          <h2>My Documents</h2>
+          <h2>All Documents</h2>
           <button onClick={() => setShowCreateModal(true)} className="btn-create">
             + New Document
           </button>
@@ -140,21 +136,18 @@ const DocumentsList: React.FC = () => {
                       : 'Empty document'}
                   </p>
                   <div className="document-meta">
-                    <span className="document-owner">by {doc.owner.username}</span>
                     <span className="document-date">{formatDate(doc.updatedAt)}</span>
                   </div>
                 </div>
-                {doc.owner.id === user?.id && (
-                  <button
-                    className="btn-delete"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleDeleteDocument(doc.id);
-                    }}
-                  >
-                    Delete
-                  </button>
-                )}
+                <button
+                  className="btn-delete"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDeleteDocument(doc.id);
+                  }}
+                >
+                  Delete
+                </button>
               </div>
             ))}
           </div>

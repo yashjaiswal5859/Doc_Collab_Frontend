@@ -42,7 +42,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
     if (storedToken && storedUser) {
       setToken(storedToken);
-      setUser(JSON.parse(storedUser));
+      const parsedUser = JSON.parse(storedUser);
+      // Ensure id is always a number
+      parsedUser.id = Number(parsedUser.id);
+      setUser(parsedUser);
       initSocket(storedToken);
     }
     setLoading(false);
@@ -52,6 +55,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     try {
       const response = await api.post('/auth/login', { email, password });
       const { token, user } = response.data;
+
+      // Ensure id is always a number
+      user.id = Number(user.id);
 
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
@@ -68,6 +74,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     try {
       const response = await api.post('/auth/register', { username, email, password });
       const { token, user } = response.data;
+
+      // Ensure id is always a number
+      user.id = Number(user.id);
 
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));

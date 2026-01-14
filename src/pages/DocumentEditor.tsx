@@ -9,10 +9,6 @@ interface Document {
   id: number;
   title: string;
   content: string;
-  owner: {
-    id: number;
-    username: string;
-  };
   versions: Array<{
     id: number;
     content: string;
